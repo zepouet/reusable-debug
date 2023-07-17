@@ -16,10 +16,10 @@ jobs:
     - name: Display env
       if: github.event_name == 'pull_request'
       run: |
-        echo ${{ github.ref }}
+        echo ${{ github.base_ref }}
         env
 
     - name: Apply
-      if: github.ref == 'refs/heads/main' && github.event.pull_request.merged == true
+      if: github.base_ref == 'refs/heads/main' && github.event.pull_request.merged == true
       run: |
-        echo ${{ github.ref }}
+        echo ${{ github.base_ref }}
