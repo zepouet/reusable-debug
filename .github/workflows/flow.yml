@@ -20,6 +20,6 @@ jobs:
         env
 
     - name: Apply
-      if: github.base_ref == 'refs/heads/main' && github.event.pull_request.merged == true
+      if: github.base_ref == 'main' && github.event.pull_request.merged == true
       run: |
         echo ${{ github.base_ref }}
