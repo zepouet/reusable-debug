@@ -1,0 +1,23 @@
+name: Provision resources 
+on:
+  workflow_call:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  provision_components:
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Display
+      if: github.event_name == 'pull_request'
+      run: |
+        echo ${{ github.ref }}
+
+    - name: Terraform Apply
+      if: github.event.pull_request.merged == true
+      run: |
+        echo ${{ github.ref }}
