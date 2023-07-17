@@ -16,8 +16,7 @@ jobs:
     - name: Display env
       if: github.event_name == 'pull_request'
       run: |
-        echo "Ah que coucou"
-        env
+        echo "Ah que coucou 2"
 
     - name: Apply
       if: github.base_ref == 'main' && github.event.pull_request.merged == true
