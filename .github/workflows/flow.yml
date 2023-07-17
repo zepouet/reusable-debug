@@ -13,12 +13,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Display
+    - name: Display env
       if: github.event_name == 'pull_request'
       run: |
         echo ${{ github.ref }}
+        env
 
-    - name: Terraform Apply
+    - name: Apply
       if: github.event.pull_request.merged == true
       run: |
         echo ${{ github.ref }}
